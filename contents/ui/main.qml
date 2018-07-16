@@ -5,8 +5,8 @@ import org.kde.plasma.core 2.0 as PlasmaCore
 
 Item {
     id: root
-    width: 1920
-    height: 1080
+    // width: 1920
+    // height: 1080
     property variant shadowColor: ["#BBFF0000","#BBFF7F00","#BBFFFF00","#BB00FF00","#BB0000FF","#BB4B0082","#BB9400D3"]
     property int last: 0
     property int n: shadowColor.length
