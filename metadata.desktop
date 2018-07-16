@@ -1,0 +1,17 @@
+ [Desktop Entry]
+Name=cuteshapes
+Comment= a simple qml based live wallpaper for KDE plasma
+
+Icon=preferences-desktop-wallpaper
+
+Type=Service
+X-KDE-ServiceTypes=Plasma/Wallpaper
+
+X-Plasma-MainScript=ui/main.qml
+X-KDE-PluginInfo-Author=Satyam Singh
+X-KDE-PluginInfo-Email=trueleo@protonmail.com
+X-KDE-PluginInfo-Name=me.trueleo.cuteshapes
+X-KDE-PluginInfo-Version=1.0
+X-KDE-PluginInfo-Website=
+X-KDE-PluginInfo-License=
+X-KDE-PluginInfo-EnabledByDefault=true
