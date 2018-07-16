@@ -4,6 +4,7 @@
 __installation__: <br>
 copy *me.trueleo.cuteshapes* folder to `~/.local/share/plasma/wallpapers/`
 
+![wallpaper_preview](https://raw.githubusercontent.com/trueleo/me.trueleo.cuteshapes/master/contents/preview/preview.png)
 
 
 *ToDos:*
