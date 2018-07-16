@@ -44,7 +44,7 @@ Item {
                 running: false
                 loops: 1
                 to: Qt.lighter(shadowColor[last], 1.2)
-                duration: 2500
+                duration: 1000
            }
 
     }
@@ -64,7 +64,7 @@ Item {
 
 
     Timer {
-            interval: 1000
+            interval: 2500
             running: true
             repeat: true
             onTriggered: {
