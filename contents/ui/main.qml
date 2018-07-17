@@ -5,8 +5,8 @@ import org.kde.plasma.core 2.0 as PlasmaCore
 
 Item {
     id: root
-    // width: 1920
-    // height: 1080
+    width: 1920
+    height: 1080
     property variant shadowColor: ["#BBFF0000","#BBFF7F00","#BBFFFF00","#BB00FF00","#BB0000FF","#BB4B0082","#BB9400D3"]
     property int last: 0
     property int n: shadowColor.length
@@ -27,6 +27,12 @@ Item {
             width: height
         }
         anchors.centerIn: parent
+        
+        ColorOverlay {
+            anchors.fill: parent
+            source: circle
+            color: wallpaper.configuration.CircleColor
+        }
     }
 
     DropShadow {
@@ -36,7 +42,7 @@ Item {
            verticalOffset: 0
            radius: 45
            samples: 18
-           color: "red"
+           color: wallpaper.configuration.ShadowColor
            source: circle
 
            ColorAnimation on color {
@@ -44,7 +50,7 @@ Item {
                 running: false
                 loops: 1
                 to: Qt.lighter(shadowColor[last], 1.2)
-                duration: 1000
+                duration: wallpaper.configuration.TransitionValue*1000
            }
 
     }
@@ -52,6 +58,7 @@ Item {
     Image {
         id: arch
         source: "arch.png"
+        visible: !(wallpaper.configuration.HideLogo)
         sourceSize {
         height: circle.height/2
         width: height
@@ -64,11 +71,11 @@ Item {
 
 
     Timer {
-            interval: 2500
-            running: true
+            interval: wallpaper.configuration.TimerValue*1000
+            running: wallpaper.configuration.UseTimer
             repeat: true
             onTriggered: {
-                last = (last+1)%(n-1)
+                last = (last+1)%n
                 shadowAnimation.running = true
             }
     }
