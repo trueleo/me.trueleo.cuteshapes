@@ -5,36 +5,32 @@ import org.kde.plasma.core 2.0 as PlasmaCore
 
 Item {
     id: root
-    width: 1920
-    height: 1080
+  
     property variant shadowColor: ["#BBFF0000","#BBFF7F00","#BBFFFF00","#BB00FF00","#BB0000FF","#BB4B0082","#BB9400D3"]
     property int last: 0
     property int n: shadowColor.length
 
-    Image {
-        source: "wallpaper2.svg"
-        sourceSize {
-          height: parent.height
-          width: parent.width
-        }
+    Loader {
+        id: wallpaperLoader
+        anchors.fill: parent
+        source: "./wallpaper/wall.qml"
     }
 
-    Image {
+    Rectangle {
         id: circle
-        source: "circle.svg"
-        sourceSize {
-            height: (parent.height + parent.width)/11
-            width: height
-        }
+        width: (parent.height + parent.width)/11
+        height: width
+        radius: width/2
+        smooth: true
+        color: wallpaper.configuration.CircleColor
         anchors.centerIn: parent
-        
-        ColorOverlay {
-            anchors.fill: parent
-            source: circle
-            color: wallpaper.configuration.CircleColor
-        }
-    }
 
+        MouseArea {
+            anchors.fill: parent
+            onClicked: wallpaper.configuration.UseTimer = !(wallpaper.configuration.UseTimer)
+        } 
+    }
+    
     DropShadow {
            id: shadow
            anchors.fill: circle
@@ -52,12 +48,13 @@ Item {
                 to: Qt.lighter(shadowColor[last], 1.2)
                 duration: wallpaper.configuration.TransitionValue*1000
            }
-
     }
 
     Image {
         id: arch
         source: "arch.png"
+        height: circle.height/2
+        width: height
         visible: !(wallpaper.configuration.HideLogo)
         sourceSize {
         height: circle.height/2
