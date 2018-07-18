@@ -30,6 +30,10 @@
       <label>Transition Duration</label>
       <default>1</default>
     </entry>
+    <entry name="IconPath" type="String">
+      <label>Icon to use</label>
+      <default>icons/archlinux.svg</default>
+    </entry>
   </group>
 
 </kcfg>

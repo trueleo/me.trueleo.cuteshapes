@@ -12,7 +12,7 @@ Column {
     property alias cfg_UseTimer: useTimer.checked
     property alias cfg_TimerValue: timerValue.text
     property alias cfg_TransitionValue: transitionValue.text
-
+    property string cfg_IconPath
     
     Rectangle {
         width: 10
@@ -20,6 +20,101 @@ Column {
         color: "transparent"
     }
     
+    Row {
+        spacing: units.largeSpacing / 2
+        
+        QtControls.Label {
+            width: formAlignment
+            anchors.verticalCenter: iconComboBox.verticalCenter
+            horizontalAlignment: Text.AlignRight
+            text: "Icon:"
+        }
+
+        QtControls.ComboBox {
+            id: iconComboBox
+            property int textLength: 24
+            width: theme.mSize(theme.defaultFont).width * textLength
+            model: [
+                        {
+                            'label': "Alpine",
+                            'iconPath': "icons/alpine.svg" 
+                        },
+                        {
+                            'label': "Archlinux",
+                            'iconPath': "icons/archlinux.svg" 
+                        },
+                        {
+                            'label': "Debian",
+                            'iconPath': "icons/debian.svg" 
+                        },
+                        {
+                            'label': "Docker",
+                            'iconPath': "icons/docker.svg" 
+                        },
+                        {
+                            'label': "Elementary",
+                            'iconPath': "icons/elementary.svg" 
+                        },
+                        {
+                            'label': "Fedora",
+                            'iconPath': "icons/fedora.svg" 
+                        },
+                        {
+                            'label': "Gentoo",
+                            'iconPath': "icons/gentoo.svg" 
+                        },
+                        {
+                            'label': "KDE",
+                            'iconPath': "icons/kde.svg" 
+                        },
+                        {
+                            'label': "Mint",
+                            'iconPath': "icons/linuxmint.svg" 
+                        },
+                        {
+                            'label': "Manjaro",
+                            'iconPath': "icons/manjaro.svg" 
+                        },
+                        {
+                            'label': "Opensuse",
+                            'iconPath': "icons/opensuse.svg" 
+                        },
+                        {
+                            'label': "Plasma",
+                            'iconPath': "icons/plasma.svg" 
+                        },
+                        {
+                            'label': "Raspberry-pi",
+                            'iconPath': "icons/raspberry-pi.svg" 
+                        },
+                        {
+                            'label': "Snappy",
+                            'iconPath': "icons/snappy.svg" 
+                        },
+                        {
+                            'label': "Tux",
+                            'iconPath': "icons/tux.svg" 
+                        },
+                        {
+                            'label': "Ubuntu",
+                            'iconPath': "icons/ubuntu.svg" 
+                        }, 
+                    ]
+
+            textRole: "label"
+            onCurrentIndexChanged: cfg_IconPath = model[currentIndex]["iconPath"]
+            Component.onCompleted: setMethod();
+
+            function setMethod() {
+                for (var i = 0; i < model.length; i++) {
+                    if (model[i]["iconPath"] == wallpaper.configuration.IconPath) {
+                        iconComboBox.currentIndex = i;
+                    }
+                }
+            }
+        }
+    }
+
     Row {
         spacing: units.largeSpacing / 2
 
