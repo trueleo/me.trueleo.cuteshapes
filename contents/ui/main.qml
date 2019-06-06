@@ -10,11 +10,34 @@ Item {
     property int last: 0
     property int n: shadowColor.length
 
+    // Loader {
+    //     id: cuteLoader
+    //     anchors.fill: parent
+    //     active: false
+    //     source: "./wallpaper/wall.qml"
+    // }
+    
     Loader {
+<<<<<<< Updated upstream
         id: cuteLoader
         anchors.fill: parent
         active: false
         source: "./wallpaper/wall.qml"
+=======
+        id: wallLoader
+        anchors.fill: parent
+        active: true
+        sourceComponent: staticImageC
+    } 
+
+    Component {
+        id: staticImageC
+        Image {
+            anchors.fill: root
+            sourceSize: parent
+            source: wallpaper.configuration.WallPath
+        }
+>>>>>>> Stashed changes
     }
     
     Loader {
@@ -50,9 +73,15 @@ Item {
             onClicked: wallpaper.configuration.UseTimer = !(wallpaper.configuration.UseTimer)
         }
         
+<<<<<<< Updated upstream
         Component.onCompleted: {
            wallLoader.active = true 
         }
+=======
+        // Component.onCompleted: {
+        //    wallLoader.active = true 
+        // }
+>>>>>>> Stashed changes
     }
 
     DropShadow {
@@ -74,9 +103,29 @@ Item {
         }
     }
 
+<<<<<<< Updated upstream
     PlasmaCore.SvgItem {
+=======
+    // PlasmaCore.SvgItem {
+    //     id: logo
+    //     height: circle.height / 2
+    //     width: height * naturalSize.height/naturalSize.width
+    //     visible: !(wallpaper.configuration.HideLogo)
+        
+    //     anchors.centerIn: circle
+    //     svg: PlasmaCore.Svg {
+    //             id: wallpaperSvg
+    //             //FIXME: Svg doesn't support relative paths
+    //             imagePath: "icons/fedora.svg" //Qt.resolvedUrl("x.svg").substring(7)
+    //     }
+    //     elementId: "iconID"
+    // }
+
+    Image {
+>>>>>>> Stashed changes
         id: logo
         height: circle.height / 2
+<<<<<<< Updated upstream
         width: height * naturalSize.height/naturalSize.width
         visible: !(wallpaper.configuration.HideLogo)
         
@@ -87,6 +136,16 @@ Item {
                 imagePath: "icons/fedora.svg" //Qt.resolvedUrl("x.svg").substring(7)
         }
         elementId: "iconID"
+=======
+        width: height
+        // visible: !(wallpaper.configuration.HideLogo)
+        visible: true
+        sourceSize {
+            height: circle.height / 2
+            width: height
+        }
+        anchors.centerIn: circle
+>>>>>>> Stashed changes
     }
 
     // Image {
