@@ -10,10 +10,7 @@ alternatively use [cuteshapes-git](https://aur.archlinux.org/packages/cuteshapes
 
 *ToDos:*
 + ~add config menu for settings page~
-+ ~add logo of popular distros~ (must use svg/svgItem from plasmacore here)
++ add logo of popular distros
 + allow choosing own png, jpeg or svg background
 + basic layouts and shape options.
-+ use more modules from plasmacore for better performance
-+ random shapes
-+ lastly try to make everything platform friendly
-
++ add pulse, radius and color configurations in settings
