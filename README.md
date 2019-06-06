@@ -8,9 +8,12 @@ alternatively use [cuteshapes-git](https://aur.archlinux.org/packages/cuteshapes
 ![wallpaper_preview](https://raw.githubusercontent.com/trueleo/me.trueleo.cuteshapes/master/contents/preview/preview.png)
 
 
+If you find any bug report an issue. Pull requests are welcomed.
+
 *ToDos:*
 + ~add config menu for settings page~
-+ add logo of popular distros
-+ allow choosing own png, jpeg or svg background
-+ basic layouts and shape options.
-+ add pulse, radius and color configurations in settings
++ ~add logo of popular distros~
++ ~allow choosing own png, jpeg or svg background~
++ some layout options
++ Can we make random shapes appear when clicked ? ( Need Research ) 
+
