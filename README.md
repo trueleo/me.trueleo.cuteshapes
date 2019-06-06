@@ -15,5 +15,8 @@ If you find any bug report an issue. Pull requests are welcomed.
 + ~add logo of popular distros~
 + ~allow choosing own png, jpeg or svg background~
 + some layout options
-+ Can we make random shapes appear when clicked ? ( Need Research ) 
+
+*IS IT POSSIBLE ...*
++ to make random shapes appear when clicked ? ( Need Research ) 
++ build this over https://github.com/zzag/dynamic-wallpaper ? 
 
