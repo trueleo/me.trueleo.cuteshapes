@@ -34,6 +34,18 @@
       <label>Icon to use</label>
       <default>icons/archlinux.svg</default>
     </entry>
+    <entry name="WallPath" type="String">
+      <label>Wallpaper to use</label>
+      <default>wallpaper/bitmap4.png</default>
+    </entry>
+    <entry name="ShapeRadius" type="int">
+      <label>radius</label>
+      <default>0</default>
+    </entry>
+    <entry name="ShapeSize" type="int">
+      <label>size</label>
+      <default>50</default>
+    </entry>
   </group>
 
 </kcfg>
