@@ -1,7 +1,6 @@
 import QtQml 2.0
 import QtQuick 2.7
 import QtGraphicalEffects 1.0
-import org.kde.plasma.core 2.0 as PlasmaCore
 
 Item {
     id: root
@@ -9,13 +8,6 @@ Item {
     property variant shadowColor: ["#BBFF0000", "#BBFF7F00", "#BBFFFF00", "#BB00FF00", "#BB0000FF", "#BB4B0082", "#BB9400D3"]
     property int last: 0
     property int n: shadowColor.length
-
-    Loader {
-        id: cuteLoader
-        anchors.fill: parent
-        active: false
-        source: "./wallpaper/wall.qml"
-    }
     
     Loader {
         id: wallLoader
@@ -28,6 +20,7 @@ Item {
         id: staticImageC
         Image {
             anchors.fill: root
+            fillMode: Image.PreserveAspectCrop
             sourceSize: parent
             source: wallpaper.configuration.WallPath
         }
@@ -74,33 +67,18 @@ Item {
         }
     }
 
-    PlasmaCore.SvgItem {
+    Image {
         id: logo
+        source: wallpaper.configuration.IconPath
         height: circle.height / 2
-        width: height * naturalSize.height/naturalSize.width
+        width: height
         visible: !(wallpaper.configuration.HideLogo)
-        
-        anchors.centerIn: circle
-        svg: PlasmaCore.Svg {
-                id: wallpaperSvg
-                //FIXME: Svg doesn't support relative paths
-                imagePath: "icons/fedora.svg" //Qt.resolvedUrl("x.svg").substring(7)
+        sourceSize {
+            height: circle.height / 2
+            width: height
         }
-        elementId: "iconID"
+        anchors.centerIn: parent
     }
-
-    // Image {
-    //     id: logo
-    //     source: wallpaper.configuration.IconPath
-    //     height: circle.height / 2
-    //     width: height
-    //     visible: !(wallpaper.configuration.HideLogo)
-    //     sourceSize {
-    //         height: circle.height / 2
-    //         width: height
-    //     }
-    //     anchors.centerIn: parent
-    // }
 
     Timer {
         interval: wallpaper.configuration.TimerValue * 1000

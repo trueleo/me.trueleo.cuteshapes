@@ -164,6 +164,7 @@ ColumnLayout {
         }
 
         QtControls.Label {
+            id: shadowLabel
             width: iconLabel.width + iconComboBox.width - circleLabel.width - 2*circleColor.width - units.largeSpacing
             visible: !useTimer.checked
             anchors.verticalCenter: shadowColor.verticalCenter
@@ -200,7 +201,7 @@ ColumnLayout {
         }
 
         QtControls.Label {
-            width: formAlignment  - units.largeSpacing
+            width: shadowLabel.width - units.largeSpacing*2
             anchors.verticalCenter: radiusValue.verticalCenter
             horizontalAlignment: Text.AlignRight
             text: "Size:"
