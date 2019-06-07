@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import QtQuick.Controls 1.4 as QtControls
 import QtQuick.Layouts 1.11
-import QtQuick.Dialogs 1.0
+import QtQuick.Dialogs 1.1
 import Qt.labs.settings 1.0
 
 import org.kde.kquickcontrols 2.0 as KQuickControls
