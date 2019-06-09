@@ -25,22 +25,6 @@ Item {
         }
     }
     
-    Loader {
-        id: wallLoader
-        anchors.fill: parent
-        active: false
-        sourceComponent: staticImageC
-    } 
-
-    Component {
-        id: staticImageC
-        Image {
-            anchors.fill: root
-            sourceSize: parent
-            source: wallpaper.configuration.WallPath
-        }
-    }
-
     Rectangle {
         id: circle
         width: ((parent.height + parent.width) / 8) * (wallpaper.configuration.ShapeSize/100)
