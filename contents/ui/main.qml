@@ -4,7 +4,6 @@ import QtGraphicalEffects 1.0
 
 Item {
     id: root
-
     property variant shadowColor: ["#BBFF0000", "#BBFF7F00", "#BBFFFF00", "#BB00FF00", "#BB0000FF", "#BB4B0082", "#BB9400D3"]
     property int last: 0
     property int n: shadowColor.length
@@ -21,6 +20,22 @@ Item {
         Image {
             anchors.fill: root
             fillMode: Image.PreserveAspectCrop
+            sourceSize: parent
+            source: wallpaper.configuration.WallPath
+        }
+    }
+    
+    Loader {
+        id: wallLoader
+        anchors.fill: parent
+        active: false
+        sourceComponent: staticImageC
+    } 
+
+    Component {
+        id: staticImageC
+        Image {
+            anchors.fill: root
             sourceSize: parent
             source: wallpaper.configuration.WallPath
         }
