@@ -32,12 +32,12 @@ ColumnLayout {
         width: 10
         height: units.largeSpacing/2
         color: "transparent"
-        
+
         Component.onCompleted: {
             if (datastore) {
             dataModel.clear()
             var datamodel = JSON.parse(datastore)
-            for (var i = 0; i < datamodel.length; ++i) 
+            for (var i = 0; i < datamodel.length; ++i)
                 dataModel.append(datamodel[i])
             }
         }
@@ -51,10 +51,10 @@ ColumnLayout {
         }
 
     }
-    
+
     Row {
         spacing: units.largeSpacing / 2
-        
+
         QtControls.Label {
             id: iconLabel
             width: formAlignment  - units.largeSpacing
@@ -70,68 +70,68 @@ ColumnLayout {
             model: [
                         {
                             'label': "Alpine",
-                            'iconPath': "icons/alpine.svg" 
+                            'iconPath': "icons/alpine.svg"
                         },
                         {
                             'label': "Archlinux",
-                            'iconPath': "icons/archlinux.svg" 
+                            'iconPath': "icons/archlinux.svg"
                         },
                         {
                             'label': "Debian",
-                            'iconPath': "icons/debian.svg" 
+                            'iconPath': "icons/debian.svg"
                         },
                         {
                             'label': "Docker",
-                            'iconPath': "icons/docker.svg" 
+                            'iconPath': "icons/docker.svg"
                         },
                         {
                             'label': "Elementary",
-                            'iconPath': "icons/elementary.svg" 
+                            'iconPath': "icons/elementary.svg"
                         },
                         {
                             'label': "Fedora",
-                            'iconPath': "icons/fedora.svg" 
+                            'iconPath': "icons/fedora.svg"
                         },
                         {
                             'label': "Gentoo",
-                            'iconPath': "icons/gentoo.svg" 
+                            'iconPath': "icons/gentoo.svg"
                         },
                         {
                             'label': "KDE",
-                            'iconPath': "icons/kde.svg" 
+                            'iconPath': "icons/kde.svg"
                         },
                         {
                             'label': "Mint",
-                            'iconPath': "icons/linuxmint.svg" 
+                            'iconPath': "icons/linuxmint.svg"
                         },
                         {
                             'label': "Manjaro",
-                            'iconPath': "icons/manjaro.svg" 
+                            'iconPath': "icons/manjaro.svg"
                         },
                         {
                             'label': "Opensuse",
-                            'iconPath': "icons/opensuse.svg" 
+                            'iconPath': "icons/opensuse.svg"
                         },
                         {
                             'label': "Plasma",
-                            'iconPath': "icons/plasma.svg" 
+                            'iconPath': "icons/plasma.svg"
                         },
                         {
                             'label': "Raspberry-pi",
-                            'iconPath': "icons/raspberry-pi.svg" 
+                            'iconPath': "icons/raspberry-pi.svg"
                         },
                         {
                             'label': "Snappy",
-                            'iconPath': "icons/snappy.svg" 
+                            'iconPath': "icons/snappy.svg"
                         },
                         {
                             'label': "Tux",
-                            'iconPath': "icons/tux.svg" 
+                            'iconPath': "icons/tux.svg"
                         },
                         {
                             'label': "Ubuntu",
-                            'iconPath': "icons/ubuntu.svg" 
-                        }, 
+                            'iconPath': "icons/ubuntu.svg"
+                        },
                     ]
 
             textRole: "label"
@@ -177,9 +177,10 @@ ColumnLayout {
             anchors.verticalCenter: circleColor.verticalCenter
             visible: !useTimer.checked
             dialogTitle: "Select Shadow Color"
+            showAlphaChannel: true
         }
     }
-   
+
     Row {
         spacing: units.largeSpacing / 2
         QtControls.Label {
@@ -225,12 +226,12 @@ ColumnLayout {
 
         QtControls.Label {
             id: useTimerLabel
-            width: formAlignment  - units.largeSpacing 
+            width: formAlignment  - units.largeSpacing
             anchors.verticalCenter: useTimer.verticalCenter
             horizontalAlignment: Text.AlignRight
             text: "Rainbow Cycle:"
         }
-        
+
         QtControls.CheckBox {
             id: useTimer
         }
@@ -246,7 +247,7 @@ ColumnLayout {
             anchors.verticalCenter: useTimer.verticalCenter
         }
     }
- 
+
     Row {
         spacing: units.largeSpacing / 2
         visible: useTimer.checked
@@ -263,7 +264,7 @@ ColumnLayout {
             validator: IntValidator {bottom: 1; top: 99999;}
             maximumLength: 5
         }
-        
+
         QtControls.Label {
             width: 50
             anchors.verticalCenter: timerValue.verticalCenter
@@ -271,7 +272,7 @@ ColumnLayout {
             text: "sec"
         }
     }
-    
+
     Row {
         spacing: units.largeSpacing / 2
         visible: useTimer.checked
@@ -289,7 +290,7 @@ ColumnLayout {
             validator: IntValidator {bottom: 1; top: 99999;}
             maximumLength: 5
         }
-        
+
         QtControls.Label {
             width: 50
             anchors.verticalCenter: transitionValue.verticalCenter
@@ -301,22 +302,22 @@ ColumnLayout {
     Rectangle {
         id: gridRect
         Layout.fillHeight: true
-        Layout.fillWidth: true 
+        Layout.fillWidth: true
         Layout.margins: units.largeSpacing
         color: "#33000000"
         clip: true
 
-        QtControls.ScrollView {    
+        QtControls.ScrollView {
             horizontalScrollBarPolicy: Qt.ScrollBarAlwaysOff
             verticalScrollBarPolicy: Qt.ScrollBarAlwaysOn
             height: gridRect.height
             width: gridRect.width
-            
+
             Rectangle {
                 height: flowtest.height
                 width: gridRect.width
                 color: "transparent"
-    
+
                Grid {
                     id: flowtest
                     anchors.centerIn: parent
@@ -341,7 +342,7 @@ ColumnLayout {
                             radius: 4
                             anchors.centerIn: parent
                             color: currIndex == index ? "#44FFFFFF" : "#77000000"
-                        
+
                             Image {
                                 id: wallThumbnail
                                 anchors.fill: parent
@@ -349,7 +350,7 @@ ColumnLayout {
                                 source: Qt.resolvedUrl(path)
                                 fillMode: Image.PreserveAspectCrop
                             }
-                            
+
                             MouseArea {
                                 anchors.fill: imageWrapper
                                 onClicked: {
@@ -357,7 +358,7 @@ ColumnLayout {
                                         cfg_WallPath = qsTr(dataModel.get(index).path)
                                 }
                             }
-                            
+
                         }
                         Rectangle {
                             id: delett
@@ -367,14 +368,14 @@ ColumnLayout {
                             color: delettMouse.containsMouse?"red":"#44000000"
                             anchors {
                                 bottom: imageWrapper.bottom
-                                bottomMargin: width/3 
+                                bottomMargin: width/3
                                 right: imageWrapper.right
                                 rightMargin: width/3
                             }
                             Image {
                                 anchors.centerIn: parent
                                 source: "x.svg"
-                                sourceSize: width/1.5 
+                                sourceSize: width/1.5
                             }
                             MouseArea {
                                 id: delettMouse
@@ -385,7 +386,7 @@ ColumnLayout {
                                 }
                             }
                         }
-                        
+
                     }
                 }
 
@@ -407,13 +408,13 @@ ColumnLayout {
                 folder: shortcuts.home
                 selectMultiple: true
                 onAccepted: {
-                    var doit = 0 
+                    var doit = 0
                     for (var i = 0; i < fileDialog.fileUrls.length; i++) {
-                        doit = 0 
+                        doit = 0
                         for (var j = 0; j < dataModel.count; j++){
                             if (fileDialog.fileUrls[i] == dataModel.get(j).path) {doit = 1}
                         }
-    
+
                         if (doit == 0) {
                             dataModel.append({"path":fileDialog.fileUrls[i]})
                         }
@@ -424,13 +425,13 @@ ColumnLayout {
                     console.log("Canceled")
                     fileDialogLoader.active = false
                 }
-                
-                Component.onCompleted: fileDialog.visible=true 
+
+                Component.onCompleted: fileDialog.visible=true
                 Component.onDestruction: console.log("Destruction Beginning!")
         }
     }
 
-    Loader {    
+    Loader {
         id: fileDialogLoader
         active: false
         sourceComponent: fileDialogC

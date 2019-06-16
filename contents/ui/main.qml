@@ -5,16 +5,16 @@ import QtGraphicalEffects 1.0
 Item {
     id: root
 
-    property variant shadowColor: ["#BBFF0000", "#BBFF7F00", "#BBFFFF00", "#BB00FF00", "#BB0000FF", "#BB4B0082", "#BB9400D3"]
+    property variant shadowColor: ["#BBFF00AA", "#BBFF7FAA", "#BBFFFFAA", "#BB00FFAA", "#BB0000FF", "#BB4B0082", "#BB9400D3"]
     property int last: 0
     property int n: shadowColor.length
-    
+
     Loader {
         id: wallLoader
         anchors.fill: parent
         active: false
         sourceComponent: staticImageC
-    } 
+    }
 
     Component {
         id: staticImageC
@@ -37,14 +37,14 @@ Item {
         anchors.horizontalCenter: parent.horizontalCenter
         anchors.verticalCenter: parent.verticalCenter
         anchors.verticalCenterOffset: -5
-    
+
         MouseArea {
             anchors.fill: parent
             onClicked: wallpaper.configuration.UseTimer = !(wallpaper.configuration.UseTimer)
         }
-        
+
         Component.onCompleted: {
-           wallLoader.active = true 
+           wallLoader.active = true
         }
     }
 
